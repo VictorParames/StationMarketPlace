@@ -14,7 +14,7 @@
 
 
  User.destroy_all
- Item.destroy_all
+
 
 users = User.create!([
 
@@ -35,7 +35,7 @@ puts "users created"
 # Creating items
 # db/seeds.rb
 
-
+Item.destroy_all
 # Create Items (50 Items)
 items = Item.create([
 
