@@ -13,6 +13,12 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div id="bezel">
+      <div id="crt">
+        <div class="scanline">
+        <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
