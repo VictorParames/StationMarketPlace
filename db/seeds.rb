@@ -13,11 +13,11 @@
 #puts "limpo"
 
 
+ User.destroy_all
+ Item.destroy_all
 
+users = User.create!([
 
-
-users = User.create([
-  { username: "john_doe", email: "john.doe@example.com", password: "password123" },
   { username: 'jane_smith', email: 'jane.smith@example.com', password: 'password123' },
   { username: 'max_payne', email: 'max.payne@example.com', password: 'password123' },
   { username: 'lucas_williams', email: 'lucas.williams@example.com', password: 'password123' },
