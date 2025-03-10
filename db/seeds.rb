@@ -8,9 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 #puts "limpando o banco de dados"
-#User.destroy.all
-#Item.destroy.all
-#puts "limpo"
+User.destroy.all
+Item.destroy.all
+puts "limpo"
 
 
  User.destroy_all
