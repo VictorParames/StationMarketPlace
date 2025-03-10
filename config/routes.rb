@@ -10,4 +10,9 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show]
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # This defines the logout route
+delete 'logout', to: 'sessions#destroy'
+
+
 end

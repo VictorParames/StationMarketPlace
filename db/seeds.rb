@@ -8,8 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 #puts "limpando o banco de dados"
-#User.destroy.all
-#Item.destroy.all
+User.destroy_all
+Item.destroy_all
 #puts "limpo"
 
 
@@ -85,7 +85,7 @@ items = Item.create([
 
 ])
 
-
+puts "items created"
 #users.each do |user|
   # Assign 3 random items to each user (you can adjust the number)
   #random_items = items.sample(3)
