@@ -1,27 +1,29 @@
-<h1>Edit item page</h1>
-<%= form_with model: @item do |i| %>
-
- <div>
-    <%= i.label :name %>
-    <%= i.text_field :name %>
-  </div>
+<div class="container text-center">
+  <h1>Edit item page</h1>
+  <%= form_with model: @item do |i| %>
 
   <div>
-    <%= i.label :description %>
-    <%= i.text_area :description %>
-  </div>
+      <%= i.label :name %>
+      <%= i.text_field :name %>
+    </div>
 
-  <div>
-    <%= i.label :price, "Price (in R$)" %>
-    <%= i.number_field :price, step: 0.01 %>
-  </div>
+    <div>
+      <%= i.label :description %>
+      <%= i.text_area :description %>
+    </div>
 
-  <div>
-    <%= i.label :categories %>
-    <%= i.select :categories, options_for_select(["Tools", "SpaceShips", "Consumables"]), prompt: "Select a category" %>
-  </div>
+    <div>
+      <%= i.label :price, "Price (in R$)" %>
+      <%= i.number_field :price, step: 0.01 %>
+    </div>
 
-  <div>
-    <%= i.submit "Patch Item" %>
-  </div>
-<% end %>
+    <div>
+      <%= i.label :categories %>
+      <%= i.select :categories, options_for_select(["Tools", "SpaceShips", "Consumables"]), prompt: "Select a category" %>
+    </div>
+
+    <div>
+      <%= i.submit "Patch Item" %>
+    </div>
+  <% end %>
+</div>

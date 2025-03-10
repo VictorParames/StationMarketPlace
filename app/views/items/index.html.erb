@@ -1,19 +1,21 @@
-<h1>Welcome to StationMarketPlace</h1>
-<p>Logged in as: <%= current_user.username %> | <%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
-<p><%= link_to "Add New Item", new_item_path %></p>
-<p>You have discount if you support Flamengo!</p>
+<div class="container text-center">
+  <h1>Welcome to StationMarketPlace</h1>
+  <p>Logged in as: <%= current_user.username %> | <%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
+  <p><%= link_to "Add New Item", new_item_path %></p>
+  <p>You have discount if you support Flamengo!</p>
 
-<h2>
-  <%= link_to "Your Requirements", item_orders_path(1) %> <%# change this later!!!! %>
-</h2>
+  <h2>
+    <%= link_to "Your Requirements", item_orders_path(1) %> <%# change this later!!!! %>
+  </h2>
 
-<h2>Available Items</h2>
-<% @items.each do |item| %>
-  <div>
-    <h3><%= item.name %> (<%= item.categories %>)</h3>
-    <p><%= item.description %></p>
-    <p>Price: <%= number_to_currency(item.price, unit: "R$") %></p>
-    <p>Created by: <%= item.user.username %></p>
-    <%= link_to "View Details", item_path(item) %>
-  </div>
-<% end %>
+  <h2>Available Items</h2>
+  <% @items.each do |item| %>
+    <div>
+      <h3><%= item.name %> (<%= item.categories %>)</h3>
+      <p><%= item.description %></p>
+      <p>Price: <%= number_to_currency(item.price, unit: "R$") %></p>
+      <p>Created by: <%= item.user.username %></p>
+      <%= link_to "View Details", item_path(item) %>
+    </div>
+  <% end %>
+</div>

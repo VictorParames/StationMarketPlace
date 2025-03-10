@@ -1,40 +1,42 @@
-<h1>Add New Item to StationMarketPlace</h1>
+<div class="container text-center">
+  <h1>Add New Item to StationMarketPlace</h1>
 
-<%= form_with model: @item do |f| %>
-  <% if @item.errors.any? %>
+  <%= form_with model: @item do |f| %>
+    <% if @item.errors.any? %>
+      <div>
+        <h2><%= pluralize(@item.errors.count, "error") %> prevented this item from being saved:</h2>
+        <ul>
+          <% @item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div>
-      <h2><%= pluralize(@item.errors.count, "error") %> prevented this item from being saved:</h2>
-      <ul>
-        <% @item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div>
+      <%= f.label :price, "Price (in R$)" %>
+      <%= f.number_field :price, step: 0.01 %>
+    </div>
+
+    <div>
+      <%= f.label :categories %>
+      <%= f.select :categories, options_for_select(["Tools", "SpaceShips", "Consumables"]), prompt: "Select a category" %>
+    </div>
+
+    <div>
+      <%= f.submit "Add Item" %>
     </div>
   <% end %>
 
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div>
-    <%= f.label :price, "Price (in R$)" %>
-    <%= f.number_field :price, step: 0.01 %>
-  </div>
-
-  <div>
-    <%= f.label :categories %>
-    <%= f.select :categories, options_for_select(["Tools", "SpaceShips", "Consumables"]), prompt: "Select a category" %>
-  </div>
-
-  <div>
-    <%= f.submit "Add Item" %>
-  </div>
-<% end %>
-
-<%= link_to "Back to Marketplace", items_path %>
+  <%= link_to "Back to Marketplace", items_path %>
+</div>
