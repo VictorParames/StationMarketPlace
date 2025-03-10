@@ -1,15 +1,17 @@
-<h1> Your supplies requirement</h1>
+<div class="container text-center">
+  <h1> Your supplies requirement</h1>
 
-<h2>
-  <ul>
-    <% @orders.each do |order| %>
-      <li>
-        <%= order.id %>
-        <%= order.item %>
-        <%= order.user %>
-      </li>
-      <% end %>
-  </ul>
-</h2>
+  <h2>
+    <ul>
+      <% @orders.each do |order| %>
+        <li>
+          <%= order.id %>
+          <%= order.item %>
+          <%= order.user %>
+        </li>
+        <% end %>
+    </ul>
+  </h2>
 
-<h3> <%= link_to "Back to Marketplace", items_path %></h3>
+  <h3> <%= link_to "Back to Marketplace", items_path %></h3>
+</div>
