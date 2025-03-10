@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @user = current_user.id
   end
 
   def new
@@ -20,6 +21,17 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+    @user = current_user.id
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to items_path, notice: "Item successfully patched"
   end
 
   private

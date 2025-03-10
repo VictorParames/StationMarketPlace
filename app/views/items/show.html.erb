@@ -4,3 +4,7 @@
 <p><strong>Price:</strong> <%= number_to_currency(@item.price, unit: "R$") %></p>
 <p><strong>Created by:</strong> <%= @item.user.username %></p>
 <%= link_to "Back to Marketplace", items_path %>
+
+<% if @user == @item.users_id %>
+  <%= link_to "edit item", edit_item_path %>
+<% end %>
