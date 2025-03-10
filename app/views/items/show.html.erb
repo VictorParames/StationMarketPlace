@@ -8,3 +8,7 @@
 <% if @user == @item.users_id %>
   <%= link_to "edit item", edit_item_path %>
 <% end %>
+
+<div>
+  <%= link_to "require", item_orders_path(@item), data: {turbo_method: :post} %>
+</div>
