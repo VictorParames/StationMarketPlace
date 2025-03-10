@@ -1,14 +1,16 @@
-<h1>Item Details</h1>
-<p><strong>Name:</strong> <%= @item.name %> (<%= @item.categories %>)</p>
-<p><strong>Description:</strong> <%= @item.description %></p>
-<p><strong>Price:</strong> <%= number_to_currency(@item.price, unit: "R$") %></p>
-<p><strong>Created by:</strong> <%= @item.user.username %></p>
-<%= link_to "Back to Marketplace", items_path %>
+<div class="container text-center">
+  <h1>Item Details</h1>
+  <p><strong>Name:</strong> <%= @item.name %> (<%= @item.categories %>)</p>
+  <p><strong>Description:</strong> <%= @item.description %></p>
+  <p><strong>Price:</strong> <%= number_to_currency(@item.price, unit: "R$") %></p>
+  <p><strong>Created by:</strong> <%= @item.user.username %></p>
+  <%= link_to "Back to Marketplace", items_path %>
 
-<% if @user == @item.users_id %>
-  <%= link_to "edit item", edit_item_path %>
-<% end %>
+  <% if @user == @item.users_id %>
+    <%= link_to "edit item", edit_item_path %>
+  <% end %>
 
-<div>
-  <%= link_to "require", item_orders_path(@item), data: {turbo_method: :post} %>
+  <div>
+    <%= link_to "require", item_orders_path(@item), data: {turbo_method: :post} %>
+  </div>
 </div>
