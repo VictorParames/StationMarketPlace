@@ -1,6 +1,6 @@
 <h1>Add New Item to StationMarketPlace</h1>
 
-<%= form_with model: @item, local: true do |f| %>
+<%= form_with model: @item do |f| %>
   <% if @item.errors.any? %>
     <div>
       <h2><%= pluralize(@item.errors.count, "error") %> prevented this item from being saved:</h2>

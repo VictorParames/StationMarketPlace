@@ -12,11 +12,12 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = current_user.items.build
+    @item = Item.new
   end
 
   def create
     @item = current_user.items.build(item_params)
+    @item.user = current_user
     if @item.save
       redirect_to items_path, notice: "Item successfully added to StationMarketPlace!"
     else
