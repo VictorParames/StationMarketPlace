@@ -3,6 +3,10 @@
 <p><%= link_to "Add New Item", new_item_path %></p>
 <p>You have discount if you support Flamengo!</p>
 
+<h2>
+  <%= link_to "Your Requirements", item_orders_path(1) %> <%# change this later!!!! %>
+</h2>
+
 <h2>Available Items</h2>
 <% @items.each do |item| %>
   <div>
