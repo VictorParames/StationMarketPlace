@@ -18,6 +18,11 @@ class ItemsController < ApplicationController
     @item = current_user.items.build(item_params)
     @item.user = current_user
     if @item.save
+      if @item.photo.attached?
+        puts "Imagem anexada com sucesso!"
+      else
+        puts "Erro: Nenhuma imagem anexada."
+      end
       redirect_to items_path, notice: "Item successfully added to StationMarketPlace!"
     else
       render :new
@@ -38,6 +43,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, :categories)
+    params.require(:item).permit(:name, :description, :price, :categories, :photo)
   end
 end
