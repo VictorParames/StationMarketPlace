@@ -9,7 +9,12 @@
   <% if @user == @item.users_id %>
     <%= link_to "edit item", edit_item_path %>
   <% end %>
-
+  <div>
+    <%= button_to "Delete", item_path(@item),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" },
+                      class: "bg-primary text-secondary" %>
+  </div>
   <div>
     <%= link_to "require", item_orders_path(@item), data: {turbo_method: :post} %>
   </div>
