@@ -8,6 +8,20 @@
     <%= link_to "Your Requirements", item_orders_path(1) %> <%# change this later!!!! %>
   </h2>
 
+  <div>
+    <div class="row justify-content-center">
+      <div class="col-sm-8 my-3">
+        <%= form_with url: items_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Search..."
+            %>
+          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <h2>Available Items</h2>
   <% @items.each do |item| %>
     <div>

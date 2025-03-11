@@ -3,6 +3,14 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+      items.name @@ :query
+      OR items.categories @@ :query
+      OR items.description @@ :query
+      SQL
+      @items = @items.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
