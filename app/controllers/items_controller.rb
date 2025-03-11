@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @items = Item.all
     if params[:query].present?
@@ -15,7 +16,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @item = Item.find(params[:id])
+    @user = current_user.id
     @orders = Order.new
   end
 
@@ -25,15 +27,17 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.items.build(item_params)
+    @item.user = current_user
     if @item.save
       redirect_to items_path, notice: "Item successfully added to StationMarketPlace!"
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
   def edit
-    @user = current_user
+    @item = Item.find(params[:id])
+    @user = current_user.id
   end
 
   def update
