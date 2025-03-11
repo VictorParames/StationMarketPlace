@@ -11,4 +11,16 @@ Rails.application.routes.draw do
   end
   # Defines the root path route ("/")
   # root "posts#index"
+
+
+  devise_scope :user do
+    delete 'users/sign_out', to: 'devise/sessions#destroy', as: :logout
+  end
+
+
+
+  # This defines the logout route
+#delete 'logout', to: 'sessions#destroy'
+
+
 end
