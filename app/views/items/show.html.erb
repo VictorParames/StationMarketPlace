@@ -16,6 +16,6 @@
                       class: "bg-primary text-secondary" %>
   </div>
   <div>
-    <%= link_to "require", item_orders_path(@item), data: {turbo_method: :post} %>
+    <%= button_to "require", item_orders_path(@item), data: {turbo_method: :post}, class: "bg-primary text-secondary" %>
   </div>
 </div>
