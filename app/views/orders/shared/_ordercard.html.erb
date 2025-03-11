@@ -3,6 +3,10 @@
     <%= order.id %>
     <%= order.item %>
     <%= order.user %>
+    <%= button_to "Delete", order_path(order.id),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" },
+                      class: "bg-primary text-secondary" %>
   </div>
   <div class="col-12 bg-secondary ">
     <div class="">
