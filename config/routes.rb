@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # Health check
   get "up" => "rails/health#show", as: :rails_health_check
-
+  resources :orders, only: [:destroy]
   resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :orders, only: [:index, :show, :create]
   end

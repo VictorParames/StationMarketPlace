@@ -16,4 +16,15 @@ class OrdersController < ApplicationController
       redirect_to item_orders_path, notice: "Item requisitioned"
     end
   end
+
+  def destroy
+    @order = Order.find(params[:id])
+    if @order.destroy
+      flash[:notice] = "Produto removido com sucesso."
+      redirect_to items_path
+    else
+      flash[:alert] = "Erro ao remover o produto."
+      redirect_back fallback_location: items_path
+    end
+  end
 end
