@@ -8,6 +8,18 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   resources :items, only: [:index, :show, :new, :create, :edit, :update] do
     resources :orders, only: [:index, :show, :create]
+
+    devise_scope :user do
+      delete 'users/sign_out', to: 'devise/sessions#destroy', as: :logout
+    end
+
+
+
+    # This defines the logout route
+  delete 'logout', to: 'sessions#destroy'
+  #delete 'logout', to: 'sessions#destroy'
+
+
   end
   # Defines the root path route ("/")
   # root "posts#index"
