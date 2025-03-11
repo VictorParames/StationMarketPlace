@@ -1,0 +1,7 @@
+<div class='row'>
+  <% orders.each do |order| %>
+    <div class="col-6 g-4">
+      <%= render "orders/shared/ordercard", order: order %>
+    </div>
+  <% end %>
+</div>
