@@ -8,12 +8,15 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 #puts "limpando o banco de dados"
-User.destroy_all
+
+
 Item.destroy_all
+User.destroy_all
+
 #puts "limpo"
 
 
- User.destroy_all
+
 
 
 users = User.create!([
@@ -35,7 +38,7 @@ puts "users created"
 # Creating items
 # db/seeds.rb
 
-Item.destroy_all
+
 # Create Items (50 Items)
 items = Item.create([
 
