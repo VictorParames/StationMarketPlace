@@ -1,0 +1,7 @@
+<div class="row">
+  <% items.each do |item| %>
+    <div class="col-4">
+      <%= render 'items/shared/itemcard', item: item %>
+    </div>
+  <% end %>
+</div>
