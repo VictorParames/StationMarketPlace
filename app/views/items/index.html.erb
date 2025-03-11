@@ -23,13 +23,7 @@
     </div>
   </div>
   <h2>Available Items</h2>
-  <% @items.each do |item| %>
-    <div>
-      <h3><%= item.name %> (<%= item.categories %>)</h3>
-      <p><%= item.description %></p>
-      <p>Price: <%= number_to_currency(item.price, unit: "R$") %></p>
-      <p>Created by: <%= item.user.username %></p>
-      <%= link_to "View Details", item_path(item) %>
-    </div>
-  <% end %>
+  <div class="container">
+    <%= render "items/shared/itemslist", items: @items %>
+  </div>
 </div>
