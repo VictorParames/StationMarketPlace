@@ -1,27 +1,35 @@
-<div class="container-fluid align-middle">
-  <div class="container text-center border border-primary border-dashed">
+<div class="container-fluid d-flex justify-content-center align-items-start min-vh-100" style="padding-top: 50px;">
+  <div class="container text-center border border-primary border p-5">
     <div class="row">
       <h1>Log into the station</h1>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
-          <%= f.input :email,
-                      required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-                      required: false,
-                      input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <div class="mb-3">
+            <%= f.input :email,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "email", class: "form-control" } %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.input :password,
+                        required: false,
+                        input_html: { autocomplete: "current-password", class: "form-control" } %>
+          </div>
+
+          <!-- Using d-flex for aligning checkbox close to password -->
+          <div class="d-flex justify-content-start align-items-center mb-3">
+            <%= f.input :remember_me, as: :boolean, label: "Remember Me" if devise_mapping.rememberable? %>
+          </div>
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Log in" %>
+          <%= f.button :submit, "Log in", class: "btn btn-primary w-100" %>
         </div>
       <% end %>
 
       <%= render "devise/shared/links" %>
     </div>
-
   </div>
 </div>
