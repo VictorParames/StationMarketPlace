@@ -1,7 +1,33 @@
 <div class="container text-center">
-  <h1> Your supplies requirement</h1>
-  <div class="container">
-    <%= render "orders/shared/orderslist", orders: @orders %>
+  <h1 class="p-2"> Your supplies requirement</h1>
+  <div class="container border border-primary m-0 p-4">
+    <div class="container">
+      <%= render "orders/shared/orderslist", orders: @orders %>
+    </div>
   </div>
-  <h3> <%= link_to "Back to Marketplace", items_path %></h3>
+  <div class="container m-0 p-0 border border-primary align-middle">
+    <div class="row">
+      <div class="col-10 text-start px-4">
+        <h4>Total</h4>
+      </div>
+      <div class="col-2">
+        <div class="container m-0 bg-primary text-secondary p-2">
+          <% @orders.each do |order| %>
+            <% @total += order.item.price %>
+          <% end %>
+          R$ <%= @total %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-6">
+        <h3>Submit order</h3>
+      </div>
+      <div class="col-6">
+        <h3> <%= link_to "Back to Marketplace", items_path %></h3>
+      </div>
+    </div>
+  </div>
 </div>
