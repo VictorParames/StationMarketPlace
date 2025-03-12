@@ -1,42 +1,53 @@
-<div class="container text-center">
-  <h1>Add New Item to StationMarketPlace</h1>
+<div class="container d-flex justify-content-center align-items-center min-vh-100 mt-4">
+  <div class="row w-100">
+    <div class="col-md-8 mx-auto" style="max-width: 800px;">
+      <div class="card shadow-lg border-primary rounded-3 p-5">
+        <div class="card-body">
+          <h1 class="card-title text-center text-primary mb-4 fw-bold">Add New Item</h1>
 
-  <%= form_with model: @item do |f| %>
-    <% if @item.errors.any? %>
-      <div>
-        <h2><%= pluralize(@item.errors.count, "error") %> prevented this item from being saved:</h2>
-        <ul>
-          <% @item.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+          <%= form_with model: @item, class: "needs-validation", novalidate: true do |f| %>
+            <% if @item.errors.any? %>
+              <div class="alert alert-danger">
+                <h4 class="alert-heading"><%= pluralize(@item.errors.count, "error") %> prevented this item from being saved:</h4>
+                <ul class="mb-0">
+                  <% @item.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="mb-3">
+              <%= f.label :name, class: "form-label fw-semibold" %>
+              <%= f.text_field :name, class: "form-control", placeholder: "Enter item name", required: true %>
+            </div>
+
+            <div class="mb-3">
+              <%= f.label :description, class: "form-label fw-semibold" %>
+              <%= f.text_area :description, class: "form-control", placeholder: "Enter item description", rows: 4, required: true %>
+            </div>
+
+            <div class="mb-3">
+              <%= f.label :price, "Price (in R$)", class: "form-label fw-semibold" %>
+              <%= f.number_field :price, step: 0.01, class: "form-control", placeholder: "Enter price", required: true %>
+            </div>
+
+            <div class="mb-4">
+              <%= f.label :categories, class: "form-label fw-semibold" %>
+              <%= f.select :categories, options_for_select(["Tools", "SpaceShips", "Consumables"]), prompt: "Select a category", class: "form-select", required: true %>
+            </div>
+
+            <div class="d-grid">
+              <%= f.submit "Add Item", class: "btn btn-primary btn-lg fw-bold" %>
+            </div>
           <% end %>
-        </ul>
+
+          <div class="text-center mt-4">
+  <%= link_to "<span class='fw-bold fs-4'>Back to Marketplace</span>".html_safe,
+      items_path, class: "btn btn-primary btn-lg px-5 py-3 shadow-lg" %>
+        </div>
+        </div>
       </div>
-    <% end %>
-
-    <div>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
     </div>
-
-    <div>
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-    </div>
-
-    <div>
-      <%= f.label :price, "Price (in R$)" %>
-      <%= f.number_field :price, step: 0.01 %>
-    </div>
-
-    <div>
-      <%= f.label :categories %>
-      <%= f.select :categories, options_for_select(["Tools", "SpaceShips", "Consumables"]), prompt: "Select a category" %>
-    </div>
-
-    <div>
-      <%= f.submit "Add Item" %>
-    </div>
-  <% end %>
-
-  <%= link_to "Back to Marketplace", items_path %>
+  </div>
 </div>
