@@ -1,12 +1,18 @@
 <div class="d-inline-flex border border-primary row m-1">
-  <div class="col-12 d-inline-flex bg-primary text-secondary text-center">
-    <%= order.id %>
-    <%= order.item %>
-    <%= order.user %>
-    <%= button_to "Delete", order_path(order.id),
-                      method: :delete,
-                      data: { confirm: "Are you sure?" },
-                      class: "bg-primary text-secondary" %>
+  <div class="col-12 d-inline-flex bg-primary text-secondary align-middle">
+    <div class="row p-0 m-0">
+      <div class="col-11 mt-2">
+        <%= order.id %>
+        <%= order.item %>
+        <%= order.user %>
+      </div>
+      <div class="col-1 p-0 mb-1">
+        <%= button_to "Delete", order_path(order.id),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" },
+                          class: "bg-primary text-secondary btn" %>
+      </div>
+    </div>
   </div>
   <div class="col-12 bg-secondary ">
     <div class="">
