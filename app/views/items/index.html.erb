@@ -14,7 +14,7 @@
               <h3>Welcome <%= current_user %></h3>
             </div>
             <div class="col-2">
-              <p><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %></p>
+              <p><%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "bg-primary text-secondary"%></p>
             </div>
           </div>
         <p><%= link_to "Add New Item", new_item_path, class: "btn btn-primary" %></p>
