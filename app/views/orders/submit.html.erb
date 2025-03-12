@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Submitted - StationMarketPlace</title>
+  <style>
+    .terminal {
+      border: 2px solid #00FF00;
+      padding: 40px;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      box-sizing: border-box;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: inherit;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+    }
+    .message {
+      font-size: 1.8em;
+      margin: 0;
+    }
+    .delivery-info {
+      font-size: 1.5em;
+      margin: 0;
+    }
+    .button {
+      background-color: #00FF00;
+      color: #0B0B0B;
+      padding: 10px 30px;
+      border: none;
+      cursor: pointer;
+      margin: 10px 0;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      white-space: normal;
+      display: inline-block;
+      min-width: 200px;
+    }
+    .button:hover {
+      background-color: #00CC00;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="content">
+      <h1>Order Submitted</h1>
+      <div class="message">
+        Your cargo is enroute
+      </div>
+      <div class="delivery-info">
+        Your purchase is between 100 and 300 light years away, and we don’t know when it will arrive.<br>
+        Thanks for your purchase! ^_^
+      </div>
+      <% if @order %>
+        <p>Total: <%= number_to_currency(@order.total, unit: "RS", precision: 2) %></p>
+      <% end %>
+      <div>
+        <%= link_to 'Back to Marketplace', items_path, class: 'button' %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

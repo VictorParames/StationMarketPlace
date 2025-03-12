@@ -28,4 +28,7 @@ class OrdersController < ApplicationController
       redirect_back fallback_location: items_path
     end
   end
+
+  def submit
+  end
 end
