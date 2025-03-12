@@ -9,7 +9,7 @@
 <p class="mb-2 fs-5"><strong>Name:</strong> <%= @item.name %> (<%= @item.categories %>)</p>
 <p class="mb-2 fs-5"><strong>Description:</strong> <%= @item.description %></p>
 <p class="mb-2 fs-5"><strong>Price:</strong> <%= number_to_currency(@item.price, unit: "R$") %></p>
-<p class="mb-4 fs-5"><strong>Created by:</strong> <%= @item.user.username %></p>
+
 
 <div class="d-flex flex-wrap justify-content-center gap-3">
 <%= link_to "Back to Marketplace", items_path, class: "btn btn-outline-success btn-lg" %>
