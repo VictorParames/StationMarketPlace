@@ -12,7 +12,10 @@
       </div>
       <div class="col-2">
         <div class="container m-0 bg-primary text-secondary p-2">
-          $$$$
+          <% @orders.each do |order| %>
+            <% @total += order.item.price %>
+          <% end %>
+          R$ <%= @total %>
         </div>
       </div>
     </div>
