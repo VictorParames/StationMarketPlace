@@ -1,42 +1,44 @@
-<div class="container-fluid mb-5 mt-2">
-  <div class="d-flex bg-primary text-secondary px-3">
-    <h1>
-      Market Terminal
-    </h1>
-  </div>
-</div>
-<div class="container-fluid text-center my-4">
-  <div class="row">
-      <div class="col-3">
-      <h3>Welcome <%= current_user %></h3>
-      <p><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %></p>
-      <p><%= link_to "Add New Item", new_item_path, class: "btn btn-primary" %></p>
-      <p>You have discount if you support Flamengo!</p>
-
-      <h2>
-        <%= link_to "Your Requirements", item_orders_path(1) %> <%# change this later!!!! %>
-      </h2>
+<div class="container-fluid p-5">
+  <div class="container-fluid mb-5 mt-2">
+    <div class="d-flex bg-primary text-secondary px-3">
+      <h1>
+        Market Terminal
+      </h1>
     </div>
-    <div class="col-9 d-block-flex justify-content-start border border-primary">
-      <div class="row">
-        <div class="col d-inline-flex bg-primary text-secondary">
-          <h2>Available Items</h2>
-        </div>
+  </div>
+  <div class="container-fluid text-center my-4">
+    <div class="row">
+        <div class="col-3">
+        <h3>Welcome <%= current_user %></h3>
+        <p><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %></p>
+        <p><%= link_to "Add New Item", new_item_path, class: "btn btn-primary" %></p>
+        <p>You have discount if you support Flamengo!</p>
+
+        <h2>
+          <%= link_to "Your Requirements", item_orders_path(1) %> <%# change this later!!!! %>
+        </h2>
       </div>
-      <div class="row justify-content-center mx-3">
-        <div class="my-3">
-          <%= form_with url: items_path, method: :get, class: "d-flex" do %>
-            <%= text_field_tag :query,
-                  params[:query],
-                  class: "form-control bg-secondary",
-                  placeholder: "Search..."
-              %>
-            <%= submit_tag "Search", name: "", class: "btn btn-secondary" %>
-          <% end %>
+      <div class="col-9 d-block-flex justify-content-start border border-primary">
+        <div class="row">
+          <div class="col d-inline-flex bg-primary text-secondary">
+            <h2>Available Items</h2>
+          </div>
         </div>
-      </div>
-      <div class="container-fluid">
-        <%= render "items/shared/itemslist", items: @items %>
+        <div class="row justify-content-center mx-3">
+          <div class="my-3">
+            <%= form_with url: items_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control bg-secondary",
+                    placeholder: "Search..."
+                %>
+              <%= submit_tag "Search", name: "", class: "btn btn-secondary" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <%= render "items/shared/itemslist", items: @items %>
+        </div>
       </div>
     </div>
   </div>

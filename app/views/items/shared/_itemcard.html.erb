@@ -1,10 +1,11 @@
-<div class="container text-center bg-primary border border-primary m-3">
-  <div class="container bg-secondary">
-    <h3><%= item.name %></h3>
-    <img src="here it goes" alt="nice image" class="img-fluid mb-3">
-    <p>Price: <%= number_to_currency(item.price, unit: "R$") %></p>
-    <div class="d-flex justify-content-center gap-3">
-      <%= link_to "View Details", item_path(item), class: "btn" %>
+<a href="<%= item_path(item) %>" style="text-decoration: none !important;">
+  <div class="container text-center bg-primary border border-primary m-3" id="itemcard">
+    <div class="container bg-secondary">
+      <h3><%= item.name %></h3>
+      <img src="here it goes" alt="nice image" class="img-fluid mb-3">
+      <p>Price: <%= number_to_currency(item.price, unit: "R$") %></p>
+      <div class="d-flex justify-content-center gap-3">
+      </div>
     </div>
   </div>
-</div>
+</a>
