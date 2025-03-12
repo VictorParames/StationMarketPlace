@@ -11,9 +11,9 @@
         <div class="col-3">
           <div class="row py-4 px-0 align-middle border border-primary">
             <div class="col-9 text-align-middle">
-              <h3>Welcome <%= current_user %></h3>
+              <div class="fs-3 overflow-hidden">Welcome <%= current_user %></div>
             </div>
-            <div class="col-3 text-align-middle">
+            <div class="col-3 text-align-middle px-1">
               <p><%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "btn bg-primary text-secondary btn-lg"%></p>
             </div>
           </div>
